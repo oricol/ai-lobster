@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拥抱AI成为超级个体 · 一起养龙虾，做短剧</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6B35',
+                        secondary: '#004E89',
+                        dark: '#1A1A2E',
+                        light: '#F7F7FF',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-gradient {
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            .bg-blur {
+                backdrop-filter: blur(8px);
+            }
+        }
+    </style>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #F7F7FF;
+        }
+        .hero-bg {
+            background-image: radial-gradient(circle at 10% 20%, rgba(255, 107, 53, 0.1) 0%, rgba(0, 78, 137, 0.05) 90%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="fixed w-full bg-white/90 bg-blur z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-primary">🦞 超级个体</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-gray-700 hover:text-primary transition-colors">项目介绍</a>
+                    <a href="#tools" class="text-gray-700 hover:text-primary transition-colors">工具下载</a>
+                    <a href="#join" class="text-gray-700 hover:text-primary transition-colors">加入我们</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700">
+                        <i class="fa fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#about" class="block px-3 py-2 text-gray-700 hover:text-primary">项目介绍</a>
+                <a href="#tools" class="block px-3 py-2 text-gray-700 hover:text-primary">工具下载</a>
+                <a href="#join" class="block px-3 py-2 text-gray-700 hover:text-primary">加入我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首屏 Hero -->
+    <section class="hero-bg pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                <span class="bg-gradient-to-r from-primary to-secondary text-gradient">拥抱AI成为超级个体</span>
+            </h1>
+            <p class="text-2xl md:text-3xl text-gray-600 mb-10 font-light">一起养龙虾，做短剧</p>
+            <p class="text-lg text-gray-500 max-w-3xl mx-auto mb-12">
+                AI 时代，一个人就是一个团队。轻投入，快回报，一起抓住云养殖 + AI 短剧的风口
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#tools" class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 transition-colors shadow-lg shadow-primary/30">
+                    <i class="fa fa-download mr-2"></i>
+                    立即下载工具
+                </a>
+                <a href="#about" class="inline-flex items-center justify-center px-8 py-4 border border-secondary text-base font-medium rounded-md text-secondary bg-transparent hover:bg-secondary/5 transition-colors">
+                    <i class="fa fa-info-circle mr-2"></i>
+                    了解项目
+                </a>
+            </div>
+        </div>
+        <div class="mt-16 max-w-5xl mx-auto rounded-xl shadow-2xl overflow-hidden">
+            <div class="bg-gradient-to-r from-primary/10 to-secondary/10 p-2">
+                <div class="bg-white rounded-lg p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="flex items-center p-4 bg-green-50 rounded-lg">
+                            <div class="rounded-full bg-green-100 p-3 mr-4">
+                                <i class="fa fa-line-chart text-green-600 text-xl"></i>
+                            </div>
+                            <div class="text-left">
+                                <p class="text-sm text-gray-500">养殖周期</p>
+                                <p class="font-bold text-xl">3-4个月回本</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-4 bg-blue-50 rounded-lg">
+                            <div class="rounded-full bg-blue-100 p-3 mr-4">
+                                <i class="fa fa-users text-blue-600 text-xl"></i>
+                            </div>
+                            <div class="text-left">
+                                <p class="text-sm text-gray-500">参与门槛</p>
+                                <p class="font-bold text-xl">一人即可启动</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-4 bg-purple-50 rounded-lg">
+                            <div class="rounded-full bg-purple-100 p-3 mr-4">
+                                <i class="fa fa-magic text-purple-600 text-xl"></i>
+                            </div>
+                            <div class="text-left">
+                                <p class="text-sm text-gray-500">AI 赋能</p>
+                                <p class="font-bold text-xl">全流程自动化</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-4 bg-yellow-50 rounded-lg">
+                            <div class="rounded-full bg-yellow-100 p-3 mr-4">
+                                <i class="fa fa-money text-yellow-600 text-xl"></i>
+                            </div>
+                            <div class="text-left">
+                                <p class="text-sm text-gray-500">双赛道变现</p>
+                                <p class="font-bold text-xl">养殖+短剧双收益</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目介绍 -->
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">项目介绍</h2>
+                <p class="text-xl text-gray-500">双赛道风口叠加，AI赋能轻创业</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 text-gray-900">🦞 云养龙虾 · 真实养殖</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-green-500 text-xl mt-1 mr-3"></i>
+                            <div>
+                                <p class="font-medium text-gray-900">线上认领，线下真实养殖</p>
+                                <p class="text-gray-500">用户在线认领小龙虾，专属养殖笼位，可实时查看生长情况</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-green-500 text-xl mt-1 mr-3"></i>
+                            <div>
+                                <p class="font-medium text-gray-900">灵活变现，多重选择</p>
+                                <p class="text-gray-500">成熟后可选择寄回食用、平台代卖分成、继续养殖增值</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-green-500 text-xl mt-1 mr-3"></i>
+                            <div>
+                                <p class="font-medium text-gray-900">周期短，回报快</p>
+                                <p class="text-gray-500">3-4个月即可收获，投入回收快，风险可控</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-green-500 text-xl mt-1 mr-3"></i>
+                            <div>
+                                <p class="font-medium text-gray-900">门槛低，易参与</p>
+                                <p class="text-gray-500">客单价友好，普通人都能参与，自带传播属性</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-gray-100 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://picsum.photos/id/42/800/600" alt="小龙虾养殖基地" class="w-full h-auto">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-20">
+                <div class="order-2 md:order-1 bg-gray-100 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://picsum.photos/id/160/800/600" alt="AI短剧制作" class="w-full h-auto">
+                </div>
+                <div class="order-1 md:order-2">
+                    <h3 class="text-2xl font-bold mb-6 text-gray-900">🎬 AI 短剧 · 流量变现</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-green-500 text-xl mt-1 mr-3"></i>
+                            <div>
+                                <p class="font-medium text-gray-900">AI 全流程自动化生产</p>
+                                <p class="text-gray-500">AI生成脚本、数字人拍摄、AI一键剪辑，全程无需真人出镜</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-green-500 text-xl mt-1 mr-3"></i>
+                            <div>
+                                <p class="font-medium text-gray-900">批量生成，放量赚分成</p>
+                                <p class="text-gray-500">一天可产出多条短剧，发到短视频平台赚流量分成</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-green-500 text-xl mt-1 mr-3"></i>
+                            <div>
+                                <p class="font-medium text-gray-900">天然引流入口</p>
+                                <p class="text-gray-500">短剧内容引流云养龙虾，一边赚分成一边拉新，闭环变现</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-green-500 text-xl mt-1 mr-3"></i>
+                            <div>
+                                <p class="font-medium text-gray-900">工具开源，可直接使用</p>
+                                <p class="text-gray-500">全套工具都在这里，拿到就能直接开干，不用自己开发</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 为什么选择我们 -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">为什么选择我们</h2>
+                <p class="text-xl text-gray-500">AI 超级个体，一人就是一支团队</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow card-hover">
+                    <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-rocket text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">轻投入起步</h3>
+                    <p class="text-gray-500">不需要租场地，不需要雇员工，不需要重投入，一台电脑就能启动</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow card-hover">
+                    <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-cogs text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">AI 全流程自动化</h3>
+                    <p class="text-gray-500">从内容生产到养殖管理，AI帮你搞定大部分工作，一个人就能干一个公司的活</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow card-hover">
+                    <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-line-chart text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">双赛道变现</h3>
+                    <p class="text-gray-500">云养龙虾佣金 + AI短剧流量分成 + 工具分销，多渠道收入，风险分散</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow card-hover">
+                    <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-users text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">社区共同成长</h3>
+                    <p class="text-gray-500">一群超级个体一起干，信息共享，资源对接，互相借力，不走弯路</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow card-hover">
+                    <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-code-fork text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">开源工具支持</h3>
+                    <p class="text-gray-500">全套开源工具，源码开放，可以二开，持续更新，不用担心用不了</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow card-hover">
+                    <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-bolt text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">风口趋势</h3>
+                    <p class="text-gray-500">AI 内容 + 共享农业，两个风口叠加，现在进场正是时候</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 工具下载 -->
+    <section id="tools" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">工具下载</h2>
+                <p class="text-xl text-gray-500">全套开源工具，拿到即可开干</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="border border-gray-200 rounded-xl overflow-hidden shadow card-hover">
+                    <div class="bg-primary/5 px-6 py-4">
+                        <h3 class="text-2xl font-bold text-gray-900">🦞 云养龙虾系统</h3>
+                        <p class="text-gray-500">用户端H5 + 管理后台</p>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-green-500 mr-2"></i>
+                                <span>用户认领小龙虾</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-green-500 mr-2"></i>
+                                <span>实时查看生长进度</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-green-500 mr-2"></i>
+                                <span>投喂互动功能</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-green-500 mr-2"></i>
+                                <span>邀请好友得奖励</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-green-500 mr-2"></i>
+                                <span>后台管理系统</span>
+                            </li>
+                        </ul>
+                        <a href="#" class="block w-full text-center px-4 py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary/90 transition-colors">
+                            <i class="fa fa-github mr-2"></i> Github 源码下载
+                        </a>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-xl overflow-hidden shadow card-hover">
+                    <div class="bg-secondary/5 px-6 py-4">
+                        <h3 class="text-2xl font-bold text-gray-900">🎬 AI 短剧工具包</h3>
+                        <p class="text-gray-500">AI全流程短剧生产</p>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-green-500 mr-2"></i>
+                                <span>AI 脚本生成</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-green-500 mr-2"></i>
+                                <span>AI 数字人拍摄</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-green-500 mr-2"></i>
+                                <span>AI 自动剪辑</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-green-500 mr-2"></i>
+                                <span>自动加字幕</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-green-500 mr-2"></i>
+                                <span>批量导出成品</span>
+                            </li>
+                        </ul>
+                        <a href="#" class="block w-full text-center px-4 py-3 bg-secondary text-white font-medium rounded-lg hover:bg-secondary/90 transition-colors">
+                            <i class="fa fa-github mr-2"></i> Github 工具下载
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-xl p-8 text-center">
+                <h3 class="text-2xl font-bold mb-4">全套项目资料</h3>
+                <p class="text-gray-600 mb-6">从0到1启动文档，运营教程，供应链资源全部打包</p>
+                <a href="#join" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 transition-colors shadow-lg shadow-primary/30">
+                    <i class="fa fa-gift mr-2"></i>
+                    获取全套资料
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 加入我们 -->
+    <section id="join" class="py-20 px-4 sm:px-6 lg:px-8 bg-dark text-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">加入我们，一起成为超级个体</h2>
+                <p class="text-xl text-gray-300">扫码进群，获取最新项目信息和工具更新</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto bg-white/10 rounded-xl p-8 backdrop-blur">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="text-center">
+                        <div class="bg-white p-4 rounded-lg inline-block">
+                            <div class="w-48 h-48 bg-gray-200 flex items-center justify-center">
+                                <span class="text-gray-500">微信交流群二维码</span>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-gray-200">扫码加群交流</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-white p-4 rounded-lg inline-block">
+                            <div class="w-48 h-48 bg-gray-200 flex items-center justify-center">
+                                <span class="text-gray-500">公众号二维码</span>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-gray-200">关注获取更多项目</p>
+                    </div>
+                </div>
+
+                <div class="mt-10 text-center">
+                    <h3 class="text-2xl font-bold mb-6">联系方式</h3>
+                    <div class="flex flex-wrap justify-center gap-6">
+                        <a href="#" class="flex items-center text-gray-200 hover:text-white transition-colors">
+                            <i class="fa fa-weixin text-2xl mr-2"></i>
+                            <span>微信：superindividual</span>
+                        </a>
+                        <a href="#" class="flex items-center text-gray-200 hover:text-white transition-colors">
+                            <i class="fa fa-github text-2xl mr-2"></i>
+                            <span>Github：lobster-short-drama</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center">
+                <blockquote class="italic text-xl text-gray-300 max-w-3xl mx-auto">
+                    "AI 不是来抢工作的，是帮普通人放大能力，让一个人也能活成一支队伍，成为自己的超级个体"
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="py-8 px-4 sm:px-6 lg:px-8 bg-dark border-t border-gray-800">
+        <div class="max-w-7xl mx-auto text-center text-gray-400">
+            <p>© 2026 拥抱AI成为超级个体. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // 点击导航项关闭移动端菜单
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // 滚动时导航栏效果
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 10) {
+                nav.classList.add('shadow-md');
+            } else {
+                nav.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body>
+</html>
